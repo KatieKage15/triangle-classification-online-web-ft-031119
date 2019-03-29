@@ -9,14 +9,14 @@ class Triangle
 
   def kind
     if #code
-      begin 
+      begin
         raise TrianlgeError
       rescue TrianlgeError => error
         puts error.message
       end
     end
   else
-    valid.triangle = self 
+    valid.triangle = self
   end
 
   def TriangleError < StandardError
