@@ -8,6 +8,15 @@ class Triangle
   end
 
   def kind
+    if #code
+      begin 
+        raise TrianlgeError
+      rescue TrianlgeError => error
+        puts error.message
+      end
+    end
+  else
+    valid.triangle = self 
   end
 
   def TriangleError < StandardError
