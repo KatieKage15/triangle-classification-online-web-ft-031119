@@ -8,9 +8,14 @@ class Triangle
   end
 
   def kind
-    if #code
+    if a == b && b == c
+      :equilateral
+    elsif a == b || b == c || a == c
+      :isosceles
+    else
+      :scalene
       begin
-        raise TrianlgeError
+        raise TriangleError
       rescue TrianlgeError => error
         puts error.message
       end
@@ -19,7 +24,7 @@ class Triangle
     valid.triangle = self
   end
 
-  def TriangleError < StandardError
+  class TriangleError < StandardError
     def message
       "Invalid Triangle"
     end
