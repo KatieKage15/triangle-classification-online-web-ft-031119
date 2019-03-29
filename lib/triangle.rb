@@ -1,6 +1,5 @@
 class Triangle
-  attr_accessor :a, :b, :c
-
+  attr_reader :a, :b, :c
   def initialize(a, b, c)
     @a = a
     @b = b
@@ -8,6 +7,7 @@ class Triangle
   end
 
   def kind
+    validate_triangle
     if a == b && b == c
       :equilateral
     elsif a == b || b == c || a == c
@@ -17,15 +17,13 @@ class Triangle
     end
   end
 
-  def real_triangle
+  def validate_triangle
     real_triangle = [(a + b > c), (a + c > b), (b + c > a)]
     [a, b, c].each { |s| real_triangle << false if s <= 0 }
-    raise TriangleError if real_trianlge.include(false)
+    raise TriangleError if real_triangle.include?(false)
   end
 
   class TriangleError < StandardError
-    def message
-      "Invalid Triangle"
-    end
   end
+
 end
