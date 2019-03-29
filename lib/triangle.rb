@@ -3,10 +3,10 @@ class Triangle
 
   def initialize(a, b, c)
     @a = a
-    @b = b 
-    @c = c 
+    @b = b
+    @c = c
   end
-  
+
   def kind
     if a == b && b == c
       :equilateral
@@ -16,10 +16,10 @@ class Triangle
       :scalene
     end
   end
-  
+
   def real_triangle
     real_triangle = [(a + b > c), (a + c > b), (b + c > a)]
-        
+
 
   class TriangleError < StandardError
     def message
